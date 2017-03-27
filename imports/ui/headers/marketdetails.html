@@ -1,0 +1,18 @@
+<template name="marketDetails">
+  {{#if contractExists}}
+    {{#if isMarketOpen}}
+      <p>
+        Market open until {{timestampToString marketCloseTime true true}}
+      </p>
+    {{else}}
+      <p class="text-danger">
+        Market closed on {{timestampToString marketCloseTime true true}}.
+        <strong>Please cancel your orders.</strong>
+      </p>
+    {{/if}}
+  {{else}}
+    <p>
+      Could not find the contract on your current blockchain environment.
+    </p>
+  {{/if}}
+</template>

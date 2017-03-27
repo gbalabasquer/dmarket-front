@@ -1,0 +1,53 @@
+<body>
+  <div class="container">
+    {{#if and isConnected hasAccount}}
+      <div class="row row-header">
+        <section class="col-xs-6">
+          {{> networkStatus }}
+        </section>    
+        <section class="col-xs-6">        
+          {{> accountSelector }}
+        </section>        
+      </div>
+      {{#if ready}}
+        {{> currencySelector }}
+        <div style="width: 450px; float: left; clear: left;">
+          {{> balance type="quote"}}
+        </div>
+        <div syle="float:left">
+          {{> balance type="base"}}
+        </div>
+        <div style="width: 450px; float: left;">
+          {{> addOffer type="selling"}}
+        </div>
+        <div syle="float:left">
+          {{> addOffer type="buying"}}
+        </div>
+        <div style="width: 450px; float: left; clear: left;">
+          {{> offers type="selling"}}
+        </div>
+        <div syle="float:left">
+          {{> offers type="buying"}}
+        </div>
+        <div style="float: left; clear: left;">
+          {{> offers type="mine"}}
+        </div>
+        {{#if contractExists}}
+          <div class="tab-content">
+            <form class="new-offer">
+              <input type="text" name="text" placeholder="Type to add new tasks" />
+            </form>
+          </div>
+        {{/if}}
+      {{/if}}
+    {{/if}}
+    {{#unless isConnected}}
+      {{> noEthereum}}
+    {{else}}
+      {{#unless hasAccount}}
+        {{> noAccount}}
+      {{/unless}}
+    {{/unless}}
+  </div>
+  {{> footer}}
+</body>

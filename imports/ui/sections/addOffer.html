@@ -1,0 +1,22 @@
+<template name="addOffer">
+  <form>
+    <div>
+      <label>{{ label }}</label>
+      <input type="text" name="inputQuantity" placeholder="0.00" {{b "value: inputQuantity, input: calcQuantity(type)"}} /> {{ quoteToken }}
+    </div>
+    <div>
+      <label>at</label>
+      <input type="text" name="price" placeholder="0.00" {{b "value: price, input: calcQuantity(type)"}} /> 
+    </div>
+    <div>
+      <label>{{ label2 }}</label>
+      {{ otherQuantity }} {{ baseToken }}
+    </div>
+    <div>
+      <input type="text" name="expiration" placeholder="" />
+      <!--<DatePicker placeholderText="Expiration" dateFormat="YYYY-MM-DD" minDate={ moment() } selected={ this.state.expiration }
+        onChange={ this.handleChange } />-->
+    </div>
+    <button type="submit">+ Add Offer</button>
+  </form>
+</template>

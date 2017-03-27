@@ -1,0 +1,10 @@
+<template name="currencySelector">
+  <div class="currencies">
+    <p class="currencies-selectors">
+      <span class="select-quote-currency">
+        <select id="sltQuoteToken" class="select-box-quote" {{b "options: quoteCurrencies, value: quoteToken, change: quoteChange"}}></select>
+      </span>
+      <span class="text-danger" {{b "text: quoteHelper"}}></span>    
+    </p>
+  </div>
+</template>

@@ -1,0 +1,34 @@
+<template name="offer">
+  <tr>
+    {{#if equals type 'mine'}}
+    <td>{{offer.uuid}}</td>
+    {{/if}}
+    {{#if equals type 'mine'}}
+    <td>
+      {{#if equals (getTokenByAddress offer.sellingToken) quoteToken}}
+        Sell
+      {{else}}
+        Buy
+      {{/if}}
+    </td>
+    {{/if}}
+    <td>{{offer.price}}</td>
+    {{#if or (equals type 'selling') (and (equals type 'mine') (equals (getTokenByAddress offer.sellingToken) quoteToken))}}
+    <td>{{offer.sellingQuantity}}</td>
+    {{/if}}
+    <td>{{offer.buyingQuantity}}</td>
+    {{#if or (equals type 'buying') (and (equals type 'mine') (equals (getTokenByAddress offer.buyingToken) quoteToken))}}
+    <td>{{offer.sellingQuantity}}</td>
+    {{/if}}
+    {{#if equals type 'mine'}}
+    <td>{{offer.expiration}}</td>
+    {{/if}}
+    <td>
+      {{#if equals offer.owner hasAccount}}
+      <button class="delete" id={{offer._id}}>&times;</button>
+      {{else}}
+      <a href="#" class="buyOffer">Buy</a>
+      {{/if}}
+    </td>
+  </tr>
+</template>

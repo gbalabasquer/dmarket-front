@@ -1,0 +1,22 @@
+<template name="offers">
+  <table>
+    <tr>
+      {{#if equals type 'mine'}}
+      <th>Id</th>
+      {{/if}}
+      {{#if equals type 'mine'}}
+      <th>Type</th>
+      {{/if}}
+      <th>Price</th>
+      <th>{{quoteToken}}</th>
+      <th>{{baseToken}}</th>
+      {{#if equals type 'mine'}}
+      <th>Expiration</th>
+      {{/if}}
+      <th></th>
+    </tr>
+    {{#each offers}}
+      {{> offer offer=this type=type}}
+    {{/each}}
+  </table>
+</template>
